@@ -9,3 +9,9 @@ export const getUsers = () => {
         return res.data.users
     })
 }
+
+export const getArticles = () => {
+    return raydditApi.get(`/articles`).then((res) => {
+        return res.data.articles
+    })
+}

@@ -10,8 +10,8 @@ export const getUsers = () => {
     })
 }
 
-export const getArticles = () => {
-    return raydditApi.get(`/articles`).then((res) => {
+export const getArticles = (topic) => {
+    return raydditApi.get(`/articles`, {params: {topic}}).then((res) => {
         return res.data.articles
     })
 }

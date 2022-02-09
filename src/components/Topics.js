@@ -8,9 +8,8 @@ export function Topics() {
     const [selectedTopic, setSelectedTopic] = useState('')
     const navigate = useNavigate();
 
-    const clickTopic = (topic) => {
-        setSelectedTopic(topic)
-        navigate(`/articles/${topic}`)
+    const clickTopic = (event) => {
+        console.log(event.target.textContent)
     }
 
     useEffect(() => {
@@ -26,8 +25,8 @@ export function Topics() {
         <h1 className="page-title">Topics</h1>
             <ul>
                 {topics.map((topic) => {
-                    return <li key={topic.slug} className="topic-card" id={topic.slug}>
-                        <h2>{topic.slug}</h2>
+                    return <li key={topic.slug} className="topic-card" id={topic.slug} >
+                        <h2 className="topic-title" onClick={clickTopic}>{topic.slug}</h2>
                         <h3>{topic.description}</h3>
                     </li>
                 })}

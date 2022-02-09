@@ -18,6 +18,7 @@ import {
 function App() {
   const [username, setUsername] = useState("");
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [chosenTopic, setChosenTopic] = useState('')
 
   const isLoggedIn = Object.keys(loggedInUser).length > 1;
 
@@ -34,6 +35,9 @@ function App() {
         <Route
         path="/topics"
         element={<Topics />} />
+        <Route
+        path="/login"
+        element={<Login />} />
     </Routes>
     <Footer />
     </div>

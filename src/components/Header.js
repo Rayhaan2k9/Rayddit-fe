@@ -10,9 +10,21 @@ const navigate = useNavigate();
         navigate(`/topics`)
     }
 
-    return <div className="header">
+    const clickLogin = () => {
+        navigate(`/login`)
+    }
+
+    const goHome = () => {
+        navigate(`/`)
+    }
+
+    return <>
+    <div className="header" onClick={() => goHome()}>
         <h1 id="main-header"><span className="logo"><SiReddit /></span>  rayddit </h1>
-        <h6 id="sub-heading">A Rayact app</h6>
-        <nav><h5 onClick={() => clickTopic()}>Topics</h5></nav>
-    </div>
+        <h6 id="sub-heading">A Rayact app</h6></div>
+        <div><h5 id="nav-login" onClick={() => clickLogin()}>Log in</h5></div>
+        <nav><h5 id="nav-topics" onClick={() => clickTopic()}>Topics</h5>
+        </nav>
+    
+    </>
 };

@@ -10,7 +10,7 @@ export function Login() {
 
     const clickUser = (newUser) => {
         setLoggedInUser(newUser)
-        navigate(`/articles`)
+        navigate(`/`)
     }
 
     useEffect(() => {

@@ -100,6 +100,9 @@ justify-content: space-between;
   color: red;
   border-radius: 10px;
   background-color: rgba(8, 22, 155, 0.753);
+  height: 75vh;
+  width: 100vw;
+  overflow: scroll;
 }
 
 #user-avatar {

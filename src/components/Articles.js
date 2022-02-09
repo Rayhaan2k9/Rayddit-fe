@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { getArticles } from "../api";
+import { getArticles, getNewArticles } from "../api";
+import { UserContext } from "../contexts/User";
 
 export function Articles() {
 const navigate = useNavigate();
+const {loggedInUser, isLoggedIn} = useContext(UserContext);
 const [articles, setArticles] = useState([]);
 
 useEffect(() => {
@@ -14,7 +16,7 @@ useEffect(() => {
 
 return (
     <>
-    <nav></nav>
+    <h3 id="welcome-message">Welcome {isLoggedIn ? loggedInUser.username : "Guest"}! Check out all articles below or choose a topic above</h3>
     <div className="articles-container">
         <ul>
             {articles.map((article) => {

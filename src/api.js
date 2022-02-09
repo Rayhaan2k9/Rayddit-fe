@@ -15,3 +15,10 @@ export const getArticles = () => {
         return res.data.articles
     })
 }
+
+export const getTopics = () => {
+    return raydditApi.get(`/topics`)
+    .then ((res) => {
+        return res.data.topics
+    })
+}

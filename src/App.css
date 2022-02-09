@@ -20,12 +20,20 @@
 #footer-title {
   font-size: 20px;;
 }
+ 
+#welcome-message {
+  color: white
+}
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   color: red;
+}
+
+nav {
+  align-self: center;
 }
 
 #sub-heading {
@@ -43,6 +51,20 @@
 .logo {
   font-size: 30px;
   margin-top: 70px;
+}
+
+#topics-container {
+  align-self: center;
+  border: black solid 1px;
+  border-radius: 10px;
+  background-color: rgba(8, 22, 155, 0.753);
+  height: 80vh;
+  width: 100vw;
+  overflow: scroll;
+}
+
+.page-title {
+  color: red;
 }
 
 .App {
@@ -71,6 +93,29 @@
   padding: 0px 20px;
 }
 
+#coding {
+  background-image: url('./images/coding\ background.png');
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+#football {
+  background-image: url('./images/football.png');
+  background-size: cover;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+#cooking {
+  background-image: url('./images/cooking.png');
+  background-size: cover;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
 .user-card {
   border: solid black 1px;
   cursor: pointer;
@@ -96,7 +141,7 @@ ul {
   margin: 0;
 }
 
-.article-card {
+.article-card, .topic-card {
   border: solid black 1px;
   background-color: white;
   border-radius: 20px;

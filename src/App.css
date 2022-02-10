@@ -82,7 +82,7 @@ justify-content: space-between;
   align-self: center;
   border: black solid 1px;
   border-radius: 10px;
-  background-color: rgba(8, 22, 155, 0.753);
+  background-color: rgba(4, 12, 90, 0.753);
   height: 80vh;
   width: 100vw;
   overflow: scroll;
@@ -126,15 +126,16 @@ justify-content: space-between;
 }
 
 .coding {
+  cursor: pointer;
   background-image: url('./images/coding\ background.png');
 display: flex;
 flex-direction: column;
 justify-content: center;
-border: solid black 1px;
+border: solid red 1px;
 background-repeat: no-repeat;
 background-size: cover;
-background-color: rgb(88, 88, 88);
-color: rgb(184, 184, 184);
+background-color: rgb(59, 58, 58);
+color: rgb(255, 0, 0);
 border-radius: 20px;
 padding: 10px;
 margin: 20px;
@@ -143,10 +144,11 @@ margin: 20px;
 .football {
   background-image: url('./images/football.png');
   background-size: cover;
+  cursor: pointer;
 display: flex;
 flex-direction: column;
 justify-content: center;
-border: solid black 1px;
+border: solid red 1px;
 background-color: white;
 border-radius: 20px;
 padding: 10px;
@@ -156,10 +158,11 @@ margin: 20px;
 .cooking {
   background-image: url('./images/cooking.png');
   background-size: cover;
+  cursor: pointer;
 display: flex;
 flex-direction: column;
 justify-content: center;
-border: solid black 1px;
+border: solid red 1px;
 background-color: white;
 border-radius: 20px;
 padding: 10px;
@@ -176,7 +179,7 @@ margin: 20px;
   padding-top: 15px;
 }
 
-.articles-container {
+.articles-container, .single-article {
   align-self: center;
   border: black solid 1px;
   border-radius: 10px;
@@ -186,12 +189,16 @@ margin: 20px;
   overflow: scroll;
 }
 
+label {
+  color: white
+}
+
 ul {
   list-style: none;
   margin: 0;
 }
 
-.article-card, .topic-card {
+.article-card, .topic-card, .main-article {
   border: solid black 1px;
   background-color: white;
   border-radius: 20px;

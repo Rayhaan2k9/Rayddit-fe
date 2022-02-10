@@ -14,13 +14,14 @@ import {
   Link,
   BrowserRouter,
 } from "react-router-dom"
+import { SingleArticle } from "./components/singleArticle";
 
 function App() {
   const [username, setUsername] = useState("");
   const [loggedInUser, setLoggedInUser] = useState({});
   const [chosenTopic, setChosenTopic] = useState('')
 
-  const isLoggedIn = Object.keys(loggedInUser).length > 1;
+  const isLoggedIn = Object.keys(loggedInUser).length > 0;
 
   return (
   <BrowserRouter>
@@ -38,6 +39,12 @@ function App() {
         <Route
         path="/login"
         element={<Login />} />
+        <Route
+        path='/topics/:topic_slug'
+        element={<Articles />} />
+        <Route
+        path='/articles/:article_id'
+        element={<SingleArticle />} />
     </Routes>
     <Footer />
     </div>

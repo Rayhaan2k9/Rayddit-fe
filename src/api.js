@@ -22,3 +22,10 @@ export const getTopics = () => {
         return res.data.topics
     })
 }
+
+export const getSingleArticle = (article_id) => {
+    return raydditApi.get(`/articles/${article_id}`)
+    .then((res) => {
+        return res.data.article
+    })
+}

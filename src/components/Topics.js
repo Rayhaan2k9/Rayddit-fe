@@ -9,7 +9,7 @@ export function Topics() {
     const navigate = useNavigate();
 
     const clickTopic = (event) => {
-        console.log(event.target.textContent)
+        navigate(`/topics/${event.target.textContent}`)
     }
 
     useEffect(() => {

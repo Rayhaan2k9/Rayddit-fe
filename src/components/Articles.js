@@ -20,7 +20,7 @@ return (
     <div className="articles-container">
         <ul>
             {articles.map((article) => {
-                return <li key={article.article_id} className='article-card'>
+                return <li key={article.article_id} className={article.topic}>
                     <h2>{article.title}</h2>
                     <h3>Author: {article.author}</h3>
                     <h3>Topic: {article.topic}</h3>

@@ -25,7 +25,7 @@ export function Topics() {
         <h1 className="page-title">Topics</h1>
             <ul>
                 {topics.map((topic) => {
-                    return <li key={topic.slug} className="topic-card" id={topic.slug} >
+                    return <li key={topic.slug} className={topic.slug} >
                         <h2 className="topic-title" onClick={clickTopic}>{topic.slug}</h2>
                         <h3>{topic.description}</h3>
                     </li>

@@ -26,42 +26,50 @@
 }
 
 .header {
-  cursor: pointer;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
   color: red;
 }
 
-nav {
+/* nav {
   color: red;
 align-self: center;
 display: flex;
 justify-content: space-between;
+} */
+
+ #nav-topics {
+  cursor: pointer;
+  font-size: 15px;
+  align-self: center;
 }
 
-#nav-topics {
+.nav-login {
   cursor: pointer;
-}
-
-#nav-login {
-  cursor: pointer;
-  color: red;
-  margin: 0 30px 0 0;
+  margin-right: 30px;
+  margin-top: 30px;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: space-around;
+}
+
+#logged-in-avatar {
+  height: 40px;
+  width: 40px;
+  margin-right: 4px;
+  border: solid red 2px;
+  border-radius: 50px;
 }
 
 #sub-heading {
   font-family: reddit;
+  font-size: x-small;
   margin: 2px 0 20px 55px;
 }
 
 #main-header {
-  font-family: reddit;
-  font-size: 20px;
+  cursor: pointer;
   margin-left: 20px;
+  font-family: reddit;
   margin-bottom: 0;
 }
 
@@ -117,27 +125,43 @@ justify-content: space-between;
   padding: 0px 20px;
 }
 
-#coding {
+.coding {
   background-image: url('./images/coding\ background.png');
 display: flex;
 flex-direction: column;
 justify-content: center;
+border: solid black 1px;
+background-color: rgb(88, 88, 88);
+color: rgb(184, 184, 184);
+border-radius: 20px;
+padding: 10px;
+margin: 20px;
 }
 
-#football {
+.football {
   background-image: url('./images/football.png');
   background-size: cover;
 display: flex;
 flex-direction: column;
 justify-content: center;
+border: solid black 1px;
+background-color: white;
+border-radius: 20px;
+padding: 10px;
+margin: 20px;
 }
 
-#cooking {
+.cooking {
   background-image: url('./images/cooking.png');
   background-size: cover;
 display: flex;
 flex-direction: column;
 justify-content: center;
+border: solid black 1px;
+background-color: white;
+border-radius: 20px;
+padding: 10px;
+margin: 20px;
 }
 
 .user-card {

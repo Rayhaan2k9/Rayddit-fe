@@ -29,3 +29,17 @@ export const getSingleArticle = (article_id) => {
         return res.data.article
     })
 }
+
+export const voteArticle = (article_id) => {
+    return raydditApi.patch(`/articles/${article_id}`, {inc_votes : 1})
+    .then((res) => {
+        return res.data.article
+    })
+}
+
+export const getComments = (article_id) => {
+    return raydditApi.get(`/articles/${article_id}/comments`)
+    .then((res) => {
+        return res.data.comments
+    })
+}

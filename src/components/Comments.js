@@ -6,6 +6,8 @@ export function Comments() {
     const {article_id} = useParams()
 const [comments, setComments] = useState([]);
 
+
+
 useEffect(() => {
     getComments(article_id)
     .then((commentsFromApi) => {
@@ -22,6 +24,10 @@ useEffect(() => {
                 })}
                 
             </ul>
+            <form>
+                <textarea rows='4' cols='50'/>
+                <button>Post</button>
+            </form>
         </div>
     )
 }

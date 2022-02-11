@@ -8,7 +8,7 @@ import { UserContext } from "../contexts/User";
 export function Header() {
 
 const navigate = useNavigate();
-const {loggedInUser, isLoggedIn} = useContext(UserContext);
+const {loggedInUser, isLoggedIn, setLoggedInUser} = useContext(UserContext);
 
     const clickTopic = () => {
         navigate(`/topics`)
@@ -22,12 +22,17 @@ const {loggedInUser, isLoggedIn} = useContext(UserContext);
         navigate(`/`)
     }
 
+    const handleLogOut = () => {
+        setLoggedInUser({})
+        alert('logged out successfully')
+    }
+
     return <nav className="header">
     <div id="main-header" onClick={() => goHome()}>
         <h1><span className="logo"><SiReddit /></span>  rayddit 
         </h1></div>
         <h5 id="nav-topics" onClick={() => clickTopic()}>Topics</h5>
-        {isLoggedIn ? <div className="nav-login"><img id="logged-in-avatar" src={loggedInUser.avatar_url}/> <h4>{loggedInUser.username}</h4></div> : <div><h5 className="nav-login" onClick={() => clickLogin()}>Log in</h5></div>}
+        {isLoggedIn ? <div className="nav-login"><img id="logged-in-avatar" src={loggedInUser.avatar_url}/> <h4>{loggedInUser.username}</h4> <button id="log-out-button" onClick={handleLogOut}>Log out?</button></div> : <div><h5 className="nav-login" onClick={() => clickLogin()}>Log in</h5></div>}
         
         
 

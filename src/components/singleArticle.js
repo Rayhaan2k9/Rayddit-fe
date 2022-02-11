@@ -11,11 +11,12 @@ export function SingleArticle() {
 const {loggedInUser, isLoggedIn} = useContext(UserContext)
 const [article, setArticle] = useState({});
 const {article_id} = useParams();
-const [vote, setVote] =useState(article.votes)
+const [votes, setVotes] =useState(0)
+
 
 const like = () => {
     if (isLoggedIn) {
-        setVote((currVote) => currVote + 1)
+    setVotes((currVotes) => currVotes + 1)
     voteArticle(article_id)
     } else {
         alert('Please log in to vote!')
@@ -27,7 +28,7 @@ useEffect(() => {
     getSingleArticle(article_id).then((articleFromApi) => {
         setArticle(articleFromApi)
     })
-}, [article])
+}, [votes])
 
     return <div className="single-article">
         <article className="main-article">
@@ -36,11 +37,11 @@ useEffect(() => {
             <p>{article.body}</p>
             
             <div className="article-footer">
-            <div classname='votes'><button id="like-button" onClick={() => like()}><AiOutlineLike /></button>
-            <p>{article.votes}</p>
+            <div className='votes'><button id="like-button" onClick={() => like()}><AiOutlineLike /></button>
+            {article.votes}
             </div>
 
-            <div id="comments"><button>{article.comment_count} comments</button>
+            <div id="comments"><h5>{article.comment_count} comments</h5>
             </div>
          </div>
             

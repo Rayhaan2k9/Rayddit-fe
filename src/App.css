@@ -198,6 +198,15 @@ ul {
   margin: 0;
 }
 
+#log-out-button {
+  cursor: pointer;
+  color: red;
+  background-color: black;
+  border: 1px red solid;
+  border-radius: 30px;
+  height: 30px;
+}
+
 .article-card, .topic-card, .main-article {
   border: solid black 1px;
   background-color: white;

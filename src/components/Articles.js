@@ -8,22 +8,41 @@ export function Articles() {
 const navigate = useNavigate();
 const {loggedInUser, isLoggedIn} = useContext(UserContext);
 const [articles, setArticles] = useState([]);
+const [sortBy, setSortBy] = useState('created_at')
 
 const clickArticle = (article_id) => {
     navigate(`/articles/${article_id}`)
 }
 
+const sortByDate = () => {
+    setSortBy('created_at')
+}
+
+const sortByComments = () => {
+    setSortBy('comment_count')
+}
+
+const sortByVotes = () => {
+    setSortBy('votes')
+}
+
+
+
 useEffect(() => {
-    getArticles(topic_slug).then((articlesFromApi) => {
+    getArticles(sortBy, topic_slug).then((articlesFromApi) => {
         setArticles(articlesFromApi)
     })
-}, [topic_slug])
+}, [sortBy, topic_slug])
 
 return (
     <>
     <form>
     <h3 id="welcome-message">Welcome {isLoggedIn ? loggedInUser.username : "Guest"}! Check out all articles below or choose a topic above</h3>
-   <label> Sort by <select></select> </label>
+   <label> Sort by <select>
+       <option onChange={sortByDate}>Date created</option>
+       <option onChange={sortByComments}>Number of comments</option>
+       <option onChange={sortByVotes}>Number of votes</option>
+       </select> </label>
     </form>
     <div className="articles-container">
         <ul>

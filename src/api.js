@@ -10,8 +10,8 @@ export const getUsers = () => {
     })
 }
 
-export const getArticles = (topic) => {
-    return raydditApi.get(`/articles`, {params: {topic}}).then((res) => {
+export const getArticles = (sort_by, topic) => {
+    return raydditApi.get(`/articles`, {params: {sort_by, topic}}).then((res) => {
         return res.data.articles
     })
 }
@@ -42,4 +42,15 @@ export const getComments = (article_id) => {
     .then((res) => {
         return res.data.comments
     })
+}
+
+export const postComment = (article_id, author, body) => {
+    return raydditApi.post(`/articles/${article_id}/comments`, {username: author, body: body})
+    .then((res) => {
+        return res.data.comment
+    })
+}
+
+export const deleteComment = (comment_id) => {
+ raydditApi.delete(`/comments/${comment_id}`)
 }

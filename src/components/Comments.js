@@ -42,13 +42,14 @@ useEffect(() => {
             <ul>
                 {comments.map((comment) => {
                     return <li key={comment.comment_id} className="main-article"><h4>{comment.author}</h4>
+                    <h5>Posted on {comment.created_at}</h5>
                     <p>{comment.body}</p>
                     {loggedInUser.username === comment.author ? <button onClick={handleDelete(comment.comment_id)}>Delete</button> : null}</li>
                 })}
                 
             </ul>
             <form onSubmit={handlePostSubmit}>
-                <textarea onChange={handleTextChange}rows='4' cols='50' value={commentBody} required/>
+                <textarea placeholder='Type your comment here' onChange={handleTextChange}rows='4' cols='50' value={commentBody} required/>
                 <button>Post</button>
             </form>
         </div>

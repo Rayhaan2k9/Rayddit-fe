@@ -37,6 +37,13 @@ export const voteArticle = (article_id) => {
     })
 }
 
+export const undoVote = (article_id) => {
+    return raydditApi.patch(`/articles/${article_id}`, {inc_votes: -1})
+    .then((res) => {
+        return res.data.article
+    })
+}
+
 export const getComments = (article_id) => {
     return raydditApi.get(`/articles/${article_id}/comments`)
     .then((res) => {

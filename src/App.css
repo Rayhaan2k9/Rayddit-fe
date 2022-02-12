@@ -127,6 +127,7 @@ justify-content: space-between;
 
 .coding {
   cursor: pointer;
+  max-width: 800px;
   background-image: url('./images/coding\ background.png');
 display: flex;
 flex-direction: column;
@@ -142,6 +143,7 @@ margin: 20px;
 }
 
 .football {
+  max-width: 800px;
   background-image: url('./images/football.png');
   background-size: cover;
   cursor: pointer;
@@ -156,6 +158,7 @@ margin: 20px;
 }
 
 .cooking {
+  max-width: 800px;
   background-image: url('./images/cooking.png');
   background-size: cover;
   cursor: pointer;
@@ -209,6 +212,7 @@ ul {
 
 .article-card, .topic-card, .main-article {
   border: solid black 1px;
+  max-width: 800px;
   background-color: white;
   border-radius: 20px;
   padding: 10px;

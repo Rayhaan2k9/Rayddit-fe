@@ -1,8 +1,8 @@
 import { useContext, useState, useEffect } from "react"
 import { useParams } from "react-router";
-import { getSingleArticle, voteArticle } from "../api";
+import { getSingleArticle, undoVote, voteArticle } from "../api";
 import { UserContext } from "../contexts/User"
-import {AiOutlineLike} from 'react-icons/ai'
+import {AiOutlineLike, AiFillLike} from 'react-icons/ai'
 import { Comments } from "./Comments";
 import { Expandable } from "./Expandable";
 
@@ -12,17 +12,29 @@ const {loggedInUser, isLoggedIn} = useContext(UserContext)
 const [article, setArticle] = useState({});
 const {article_id} = useParams();
 const [votes, setVotes] =useState(0)
+const [haveVoted, setHaveVoted] = useState(false)
+
+
 
 
 const like = () => {
     if (isLoggedIn) {
     setVotes((currVotes) => currVotes + 1)
     voteArticle(article_id)
+    setHaveVoted(true)
     } else {
         alert('Please log in to vote!')
-    }
-    
+    }  
 }
+
+const undoLike = () => {
+    if (isLoggedIn) {
+        setVotes((currVotes) => currVotes - 1)
+        undoVote(article_id)
+        setHaveVoted(false)
+    }
+}
+
 
 useEffect(() => {
     getSingleArticle(article_id).then((articleFromApi) => {
@@ -37,7 +49,7 @@ useEffect(() => {
             <p>{article.body}</p>
             
             <div className="article-footer">
-            <div className='votes'><button id="like-button" onClick={() => like()}><AiOutlineLike /></button>
+            <div className='votes'>{haveVoted ? <button onClick={() => undoLike()}><AiFillLike /></button> : <button id="like-button" onClick={() => like()}><AiOutlineLike /></button>}
             {article.votes}
             </div>
 

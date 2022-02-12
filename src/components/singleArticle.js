@@ -40,7 +40,7 @@ useEffect(() => {
     getSingleArticle(article_id).then((articleFromApi) => {
         setArticle(articleFromApi)
     })
-}, [votes])
+}, [article, votes])
 
     return <div className="single-article">
         <article className="main-article">

@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react"
 import { useParams } from "react-router";
-import { getSingleArticle, undoVote, voteArticle } from "../api";
+import { getSingleArticle, undoVote, voteArticle, formatDate } from "../api";
 import { UserContext } from "../contexts/User"
 import {AiOutlineLike, AiFillLike} from 'react-icons/ai'
 import { Comments } from "./Comments";
@@ -45,7 +45,7 @@ useEffect(() => {
     return <div className="single-article">
         <article className="main-article">
             <h1>{article.title}</h1>
-            <h4>Posted by {article.author} on {article.created_at}</h4>
+            <h4>Posted by {article.author} on {formatDate(article.created_at)}</h4>
             <p>{article.body}</p>
             
             <div className="article-footer">

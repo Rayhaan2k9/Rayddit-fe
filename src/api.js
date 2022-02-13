@@ -1,4 +1,5 @@
 import axios from "axios";
+const dayjs = require("dayjs")
 
 const raydditApi = axios.create({
     baseURL: 'https://rayddit.herokuapp.com/api'
@@ -10,8 +11,8 @@ export const getUsers = () => {
     })
 }
 
-export const getArticles = (sort_by, topic) => {
-    return raydditApi.get(`/articles`, {params: {sort_by, topic}}).then((res) => {
+export const getArticles = (sortQry, topicQry) => {
+    return raydditApi.get(`/articles`, {params: {topic: topicQry, sort_by: sortQry}}).then((res) => {
         return res.data.articles
     })
 }
@@ -60,4 +61,10 @@ export const postComment = (article_id, author, body) => {
 
 export const deleteComment = (comment_id) => {
  raydditApi.delete(`/comments/${comment_id}`)
+}
+
+export const formatDate = (date) => {
+    if (date) {
+        return dayjs(date).$d.toString().substring(4, 15);
+    }
 }

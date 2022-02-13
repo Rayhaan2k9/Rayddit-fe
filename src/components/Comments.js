@@ -1,6 +1,6 @@
 import {useState, useEffect, useContext} from 'react'
 import {useParams} from "react-router"
-import {deleteComment, getComments, postComment} from "../api"
+import {deleteComment, getComments, postComment, formatDate} from "../api"
 import { UserContext } from '../contexts/User';
 
 
@@ -42,7 +42,7 @@ useEffect(() => {
             <ul>
                 {comments.map((comment) => {
                     return <li key={comment.comment_id} className="main-article"><h4>{comment.author}</h4>
-                    <h5>Posted on {comment.created_at}</h5>
+                    <h5>Posted on {formatDate(comment.created_at)}</h5>
                     <p>{comment.body}</p>
                     {loggedInUser.username === comment.author ? <button onClick={handleDelete(comment.comment_id)}>Delete</button> : null}</li>
                 })}

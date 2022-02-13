@@ -17,12 +17,29 @@
 	align-items: center;
 }
 
+.sort-buttons-container {
+  font-weight: bold;
+  color: red;
+  margin-bottom: 10px;
+}
+
+.sort-button {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: black;
+  color : red;
+  border: solid red 1px;
+  border-radius: 30px;
+  padding: 6px;
+  margin: 5px;
+}
+
 #footer-title {
   font-size: 20px;;
 }
  
 #welcome-message {
-  color: white
+  color: red;
 }
 
 .header {
@@ -187,7 +204,7 @@ margin: 20px;
   border: black solid 1px;
   border-radius: 10px;
   background-color: rgba(8, 22, 155, 0.753);
-  height: 80vh;
+  height: 70vh;
   width: 100vw;
   overflow: scroll;
 }
@@ -220,7 +237,12 @@ ul {
 
 }
 
-.App-header {
+#react-logo {
+  font-size: large;
+  color: #61a9fb;
+}
+
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -229,8 +251,8 @@ ul {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */

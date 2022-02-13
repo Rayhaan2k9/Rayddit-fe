@@ -49,7 +49,7 @@ useEffect(() => {
             <p>{article.body}</p>
             
             <div className="article-footer">
-            <div className='votes'>{haveVoted ? <button onClick={() => undoLike()}><AiFillLike /></button> : <button id="like-button" onClick={() => like()}><AiOutlineLike /></button>}
+            <div className='votes'>{haveVoted ? <button id="undo-like-button" onClick={() => undoLike()}><AiFillLike /></button> : <button id="like-button" onClick={() => like()}><AiOutlineLike /></button>}
             {article.votes}
             </div>
 

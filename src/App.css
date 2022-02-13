@@ -199,12 +199,22 @@ margin: 20px;
   padding-top: 15px;
 }
 
-.articles-container, .single-article {
+.articles-container {
   align-self: center;
   border: black solid 1px;
   border-radius: 10px;
   background-color: rgba(8, 22, 155, 0.753);
-  height: 70vh;
+  height: 71vh;
+  width: 100vw;
+  overflow: scroll;
+}
+
+.single-article {
+  align-self: center;
+  border: black solid 1px;
+  border-radius: 10px;
+  background-color: rgba(8, 22, 155, 0.753);
+  height: 84vh;
   width: 100vw;
   overflow: scroll;
 }
@@ -235,6 +245,16 @@ ul {
   padding: 10px;
   margin: 20px;
 
+}
+
+
+
+#like-button, #undo-like-button {
+  color: #4287d4;
+  cursor: pointer;
+  border: none;
+  font-size: larger;
+  background-color: white;
 }
 
 #react-logo {

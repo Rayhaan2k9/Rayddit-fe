@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { getArticles, formatDate } from "../api";
 import { UserContext } from "../contexts/User";
+import { Footer } from "./Footer";
+
 
 export function Articles() {
     const {topic_slug} = useParams()
@@ -37,7 +39,10 @@ useEffect(() => {
 return (
     <>
     
-    <h4 id="welcome-message">Welcome {isLoggedIn ? loggedInUser.username : "Guest"}! Check out all articles below or choose a topic above</h4>
+    
+    
+    <div className="articles-container">
+        <h4 id="welcome-message">Welcome {isLoggedIn ? loggedInUser.username : "Guest"}! Check out all articles below or choose a topic above</h4>
     
     {/* <form>
    <label> Sort by <select>
@@ -49,10 +54,7 @@ return (
 
     <div className="sort-buttons-container">
         Sort by <button className="sort-button" onClick={() => sortByDate()}>Date created</button> <button className="sort-button"  onClick={() => sortByComments()}>Number of comments</button> <button className="sort-button"  onClick={() => sortByVotes()}>Number of votes</button>
-    </div>
-    
-    <div className="articles-container">
-        <ul>
+    </div><ul>
             {articles.map((article) => {
                 return <li key={article.article_id} className={article.topic} onClick={() => clickArticle(article.article_id)}>
                     <h2>{article.title}</h2>

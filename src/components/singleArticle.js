@@ -5,6 +5,7 @@ import { UserContext } from "../contexts/User"
 import {AiOutlineLike, AiFillLike} from 'react-icons/ai'
 import { Comments } from "./Comments";
 import { Expandable } from "./Expandable";
+import { Footer } from "./Footer";
 
 
 export function SingleArticle() {
@@ -60,6 +61,5 @@ useEffect(() => {
         </article>
         <Expandable>
         <div> <Comments /></div> </Expandable>
-            
     </div>
 }

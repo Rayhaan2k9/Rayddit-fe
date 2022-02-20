@@ -18,6 +18,7 @@
 }
 
 .sort-buttons-container {
+  align-self: center;
   font-weight: bold;
   color: red;
   margin-bottom: 10px;
@@ -42,9 +43,18 @@
   background-color: black;
   margin: 20px 30px 10px;
   padding: 5px;
+  max-width: 700px;
   border: 1px red solid;
   border-radius: 30px;
   color: red;
+}
+
+@media only screen and (min-width: 856px) {
+  #welcome-message {
+    position: relative;
+  left: 140px;
+  margin-bottom: 50px;
+  }
 }
 
 .header {
@@ -205,11 +215,10 @@ margin: 20px;
 }
 
 .articles-container {
-  align-self: center;
   border: black solid 1px;
   border-radius: 10px;
   background-color: rgba(8, 22, 155, 0.753);
-  height: 81vh;
+  height: 80vh;
   width: 100vw;
   overflow: scroll;
 }

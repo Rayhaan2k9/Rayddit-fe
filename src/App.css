@@ -9,8 +9,6 @@
   color: red;
   border: solid black 1px;
   background-color: #000000;
-  position: absolute;
-  bottom: 0;
 	width: 100%;
 	height: 12vh;
 	bottom: 0;
@@ -217,7 +215,7 @@ margin: 20px;
   align-items: center;
   border-radius: 10px;
   background-color: rgba(8, 22, 155, 0.753);
-  height: 79vh;
+  height: 100vh;
   width: 100vw;
   overflow: scroll;
 }
@@ -229,7 +227,7 @@ margin: 20px;
   border: black solid 1px;
   border-radius: 10px;
   background-color: rgba(8, 22, 155, 0.753);
-  height: 76vh;
+  height: 100vh;
   width: 100vw;
   overflow: scroll;
 }

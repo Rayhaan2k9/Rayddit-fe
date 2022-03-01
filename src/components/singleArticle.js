@@ -60,6 +60,7 @@ useEffect(() => {
             
         </article>
         <Expandable>
-        <div> <Comments /></div> </Expandable>
+        <div> <Comments /></div> 
+        </Expandable>
     </div>
 }

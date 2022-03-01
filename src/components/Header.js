@@ -32,7 +32,8 @@ const {loggedInUser, isLoggedIn, setLoggedInUser} = useContext(UserContext);
         <h1><span className="logo"><SiReddit /></span>  rayddit 
         </h1></div>
         <h5 id="nav-topics" onClick={() => clickTopic()}>Topics</h5>
-        {isLoggedIn ? <div className="nav-login"><img id="logged-in-avatar" src={loggedInUser.avatar_url}/> <h4>{loggedInUser.username}</h4> <button id="log-out-button" onClick={handleLogOut}>Log out?</button></div> : <div><h5 className="nav-login" onClick={() => clickLogin()}>Log in</h5></div>}
+        {isLoggedIn ? <div className="nav-login"><div id="logged-in-user"><img id="logged-in-avatar" src={loggedInUser.avatar_url}/> <h4>{loggedInUser.username}</h4>
+        </div> <button id="log-out-button" onClick={handleLogOut}>Log out?</button></div> : <div><h5 className="nav-login" onClick={() => clickLogin()}>Log in</h5></div>}
         
         
 

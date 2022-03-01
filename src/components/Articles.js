@@ -44,13 +44,7 @@ return (
     <div className="articles-container">
         <h4 id="welcome-message">Welcome {isLoggedIn ? loggedInUser.username : "Guest"}! Check out all articles below or choose a topic above</h4>
     
-    {/* <form>
-   <label> Sort by <select>
-       <option onChange={() => sortByDate()}>Date created</option>
-       <option onChange={() => sortByComments()}>Number of comments</option>
-       <option onChange={() => sortByVotes()}>Number of votes</option>
-       </select> </label>
-    </form> */}
+   
 
     <div className="sort-buttons-container">
         Sort by <button className="sort-button" onClick={() => sortByDate()}>Date created</button> <button className="sort-button"  onClick={() => sortByComments()}>Number of comments</button> <button className="sort-button"  onClick={() => sortByVotes()}>Number of votes</button>

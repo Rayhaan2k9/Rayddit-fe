@@ -2,9 +2,7 @@
   font-family: 'reddit';
   src: url('./fonts/RockoFLF.ttf');
 }
-html {
-  background-color: black;
-}
+
 
 .footer {
   font-family: reddit;
@@ -46,19 +44,11 @@ html {
 #welcome-message {
   background-color: black;
   margin: 20px 30px 10px;
-  padding: 5px;
+  padding: 10px;
   max-width: 700px;
   border: 1px red solid;
   border-radius: 30px;
   color: red;
-}
-
-@media only screen and (min-width: 856px) {
-  #welcome-message {
-    position: relative;
-  left: 140px;
-  margin-bottom: 50px;
-  }
 }
 
 .header {
@@ -66,6 +56,8 @@ html {
   justify-content: space-between;
   color: red;
 }
+
+
 
 /* nav {
   color: red;
@@ -220,22 +212,29 @@ margin: 20px;
 
 .articles-container {
   border: black solid 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: 10px;
   background-color: rgba(8, 22, 155, 0.753);
-  height: 74vh;
+  height: 79vh;
   width: 100vw;
   overflow: scroll;
 }
 
 .single-article {
-  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: black solid 1px;
   border-radius: 10px;
   background-color: rgba(8, 22, 155, 0.753);
-  height: 74vh;
+  height: 76vh;
   width: 100vw;
   overflow: scroll;
 }
+
+
 
 label {
   color: white
@@ -282,9 +281,55 @@ ul {
   background-color: white;
 }
 
+#logged-in-user {
+  display: flex;
+  align-self: center;
+}
+
 #react-logo {
   font-size: large;
   color: #61a9fb;
+}
+
+@media only screen and (max-width: 457px) {
+  .header {
+    height: 10vh;
+    font-size: 10px;
+  }
+
+  #main-header {
+    align-self: center;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  #logged-in-avatar {
+    height: 20px;
+    width: 20px
+  }
+
+  .nav-login {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #log-out-button {
+    height: 14px;
+    width: 60px;
+    font-size: 10px;
+  }
+
+  .footer {
+    height : 10vh
+  }
+
+  .articles-container, .single-article {
+    height: 80vh
+  }
+
+  
 }
 
 

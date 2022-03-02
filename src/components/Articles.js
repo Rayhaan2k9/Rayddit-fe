@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { getArticles, formatDate } from "../api";
 import { UserContext } from "../contexts/User";
+import Loader from "react-js-loader"
 
 
 export function Articles() {
@@ -10,6 +11,7 @@ const navigate = useNavigate();
 const {loggedInUser, isLoggedIn} = useContext(UserContext);
 const [articles, setArticles] = useState([]);
 const [sortBy, setSortBy] = useState('created_at')
+const [isLoading, setIsLoading] = useState(false)
 
 const clickArticle = (article_id) => {
     navigate(`/articles/${article_id}`)
@@ -30,8 +32,11 @@ const sortByVotes = () => {
 
 
 useEffect(() => {
-    getArticles(sortBy, topic_slug).then((articlesFromApi) => {
+    setIsLoading(true)
+    getArticles(sortBy, topic_slug)
+    .then((articlesFromApi) => {
         setArticles(articlesFromApi)
+        setIsLoading(false)
     })
 }, [sortBy, topic_slug])
 
@@ -39,15 +44,15 @@ return (
     <>
     
     
-    
     <div className="articles-container">
         <h4 id="welcome-message">Welcome {isLoggedIn ? loggedInUser.username : "Guest"}! Check out all articles below or choose a topic above</h4>
     
    
 
-    <div className="sort-buttons-container">
+    {isLoading ? <div id="loader"><Loader type="bubble-top" bgColor={"red"} title={"loading-articles"} color={'red'} size={100} /> </div>: <div className="sort-buttons-container">
         Sort by <button className="sort-button" onClick={() => sortByDate()}>Date created</button> <button className="sort-button"  onClick={() => sortByComments()}>Number of comments</button> <button className="sort-button"  onClick={() => sortByVotes()}>Number of votes</button>
-    </div><ul>
+    </div>}
+    <ul>
             {articles.map((article) => {
                 return <li key={article.article_id} className={article.topic} onClick={() => clickArticle(article.article_id)}>
                     <h2>{article.title}</h2>
@@ -62,6 +67,7 @@ return (
         </ul>
 
     </div>
+    
     
     </>
 )

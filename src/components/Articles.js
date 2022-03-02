@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { getArticles, formatDate } from "../api";
 import { UserContext } from "../contexts/User";
-import { Footer } from "./Footer";
 
 
 export function Articles() {

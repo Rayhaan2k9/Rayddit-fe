@@ -35,7 +35,7 @@ useEffect(() => {
     .then((commentsFromApi) => {
         setComments(commentsFromApi)
     })
-}, [comments])
+}, [comments, article_id])
 
     return (
         <div>

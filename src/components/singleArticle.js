@@ -5,11 +5,11 @@ import { UserContext } from "../contexts/User"
 import {AiOutlineLike, AiFillLike} from 'react-icons/ai'
 import { Comments } from "./Comments";
 import { Expandable } from "./Expandable";
-import { Footer } from "./Footer";
+
 
 
 export function SingleArticle() {
-const {loggedInUser, isLoggedIn} = useContext(UserContext)
+const { isLoggedIn } = useContext(UserContext)
 const [article, setArticle] = useState({});
 const {article_id} = useParams();
 const [votes, setVotes] =useState(0)
@@ -41,7 +41,7 @@ useEffect(() => {
     getSingleArticle(article_id).then((articleFromApi) => {
         setArticle(articleFromApi)
     })
-}, [article, votes])
+}, [article, votes, article_id])
 
     return <div className="single-article">
         <article className="main-article">

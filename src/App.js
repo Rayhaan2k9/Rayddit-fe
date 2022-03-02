@@ -7,20 +7,14 @@ import './App.css';
 import { useState } from "react";
 import{ UserContext } from "./contexts/User"
 import {
-  BrowserRouter as Router,
-  Switch,
   Routes,
   Route,
-  Link,
   BrowserRouter,
 } from "react-router-dom"
 import { SingleArticle } from "./components/singleArticle";
 
 function App() {
-  const [username, setUsername] = useState("");
   const [loggedInUser, setLoggedInUser] = useState({});
-  const [chosenTopic, setChosenTopic] = useState('')
-
   const isLoggedIn = Object.keys(loggedInUser).length > 0;
 
   return (

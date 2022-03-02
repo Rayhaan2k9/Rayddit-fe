@@ -5,7 +5,6 @@ import { getTopics } from "../api"
 
 export function Topics() {
     const [topics, setTopics] = useState([])
-    const [selectedTopic, setSelectedTopic] = useState('')
     const navigate = useNavigate();
 
     const clickTopic = (event) => {

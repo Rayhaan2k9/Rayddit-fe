@@ -5,6 +5,7 @@ import { UserContext } from "../contexts/User"
 import {AiOutlineLike, AiFillLike} from 'react-icons/ai'
 import { Comments } from "./Comments";
 import { Expandable } from "./Expandable";
+import { Error } from "./Error";
 
 
 
@@ -15,6 +16,7 @@ const {article_id} = useParams();
 const [votes, setVotes] =useState(0)
 const [haveVoted, setHaveVoted] = useState(false)
 const [loginPrompt, setLoginPrompt] = useState(null)
+const [error, setError] = useState(null)
 
 
 
@@ -39,12 +41,17 @@ const undoLike = () => {
 
 
 useEffect(() => {
-    getSingleArticle(article_id).then((articleFromApi) => {
+    getSingleArticle(article_id)
+    .then((articleFromApi) => {
         setArticle(articleFromApi)
+    })
+    .catch ((err) => {
+       
+        setError(err.response)
     })
 }, [article, votes, article_id])
 
-    return <div className="single-article">
+    return error ? <Error error={error}/> : <div className="single-article">
         <article className="main-article">
             <h1>{article.title}</h1>
             <h4>Posted by {article.author} on {formatDate(article.created_at)}</h4>
@@ -53,7 +60,7 @@ useEffect(() => {
             <div className="article-footer">
             <div className='votes'>{haveVoted ? <button id="undo-like-button" onClick={() => undoLike()}><AiFillLike /></button> : <button id="like-button" onClick={() => like()}><AiOutlineLike /></button>}
             {article.votes}
-            <p className="login-prompt">{loginPrompt}</p>
+            <p className="prompt">{loginPrompt}</p>
             </div>
 
             <div id="comments"><h5>{article.comment_count} comments</h5>

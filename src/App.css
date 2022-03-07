@@ -268,7 +268,15 @@ ul {
 
 }
 
+.login-prompt {
+  color: red;
+  font-size: 13px;
+}
 
+#comment-form {
+  margin-top: 20px;
+  
+}
 
 #like-button, #undo-like-button {
   color: #4287d4;

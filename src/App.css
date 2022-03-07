@@ -10,7 +10,6 @@
   background-color: #000000;
 	width: 100%;
 	height: 12vh;
-	bottom: 0;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -226,7 +225,7 @@ margin: 20px;
   border: black solid 1px;
   border-radius: 10px;
   background-color: rgba(8, 22, 155, 0.753);
-  height: 100vh;
+  min-height: 80vh;
   width: 100vw;
   overflow: scroll;
 }
@@ -258,7 +257,7 @@ ul {
   height: 30px;
 }
 
-.article-card, .topic-card, .main-article {
+.article-card, .topic-card, .main-article, #error-container {
   border: solid black 1px;
   max-width: 800px;
   background-color: white;
@@ -268,7 +267,11 @@ ul {
 
 }
 
-.login-prompt {
+#comment-list {
+  padding: 0
+}
+
+.prompt {
   color: red;
   font-size: 13px;
 }
@@ -277,6 +280,8 @@ ul {
   margin-top: 20px;
   
 }
+
+
 
 #like-button, #undo-like-button {
   color: #4287d4;

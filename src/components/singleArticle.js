@@ -14,6 +14,7 @@ const [article, setArticle] = useState({});
 const {article_id} = useParams();
 const [votes, setVotes] =useState(0)
 const [haveVoted, setHaveVoted] = useState(false)
+const [loginPrompt, setLoginPrompt] = useState(null)
 
 
 
@@ -24,7 +25,7 @@ const like = () => {
     voteArticle(article_id)
     setHaveVoted(true)
     } else {
-        alert('Please log in to vote!')
+        setLoginPrompt('Please log in to vote!')
     }  
 }
 
@@ -52,6 +53,7 @@ useEffect(() => {
             <div className="article-footer">
             <div className='votes'>{haveVoted ? <button id="undo-like-button" onClick={() => undoLike()}><AiFillLike /></button> : <button id="like-button" onClick={() => like()}><AiOutlineLike /></button>}
             {article.votes}
+            <p className="login-prompt">{loginPrompt}</p>
             </div>
 
             <div id="comments"><h5>{article.comment_count} comments</h5>

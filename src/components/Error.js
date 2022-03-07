@@ -1,11 +1,12 @@
 import React from "react";
 
-export const Error = () => {
-
+export const Error = (props) => {
+console.log(props.error)
 
     return (
-        <div>
-            <h1>Error</h1>
+        <div id="error-container">
+            <h1>{props.error.status}</h1>
+            <h1>{props.error.data.message}</h1>
         </div>
     )
 }

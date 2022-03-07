@@ -3,15 +3,17 @@ import { useNavigate, useParams } from "react-router";
 import { getArticles, formatDate } from "../api";
 import { UserContext } from "../contexts/User";
 import Loader from "react-js-loader"
+import { Error } from "./Error"
 
 
 export function Articles() {
-    const {topic_slug} = useParams()
+const {topic_slug} = useParams()
 const navigate = useNavigate();
 const {loggedInUser, isLoggedIn} = useContext(UserContext);
 const [articles, setArticles] = useState([]);
 const [sortBy, setSortBy] = useState('created_at')
 const [isLoading, setIsLoading] = useState(false)
+const [error, setError] = useState(null)
 
 const clickArticle = (article_id) => {
     navigate(`/articles/${article_id}`)
@@ -38,13 +40,16 @@ useEffect(() => {
         setArticles(articlesFromApi)
         setIsLoading(false)
     })
+    .catch((err) => {
+        console.log (err)
+        setError({ err })
+    })
 }, [sortBy, topic_slug])
 
 return (
     <>
     
-    
-    <div className="articles-container">
+    {error ? <Error /> : <div className="articles-container">
         <h4 id="welcome-message">Welcome {isLoggedIn ? loggedInUser.username : "Guest"}! Check out all articles below or choose a topic above</h4>
     
    
@@ -66,7 +71,8 @@ return (
             })}
         </ul>
 
-    </div>
+    </div>}
+    
     
     
     </>

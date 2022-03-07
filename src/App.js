@@ -12,6 +12,7 @@ import {
   BrowserRouter,
 } from "react-router-dom"
 import { SingleArticle } from "./components/singleArticle";
+import { Error } from "./components/Error"
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -28,6 +29,9 @@ function App() {
         path="/"
         element={<Articles />} />
         <Route
+        path="/articles"
+        element={<Articles />} />
+        <Route
         path="/topics"
         element={<Topics />} />
         <Route
@@ -39,6 +43,9 @@ function App() {
         <Route
         path='/articles/:article_id'
         element={<SingleArticle />} />
+        <Route
+        path='*'
+        element={<Error />} />
     </Routes>
     <Footer />
     </div>

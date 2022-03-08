@@ -30,15 +30,12 @@ const handlePostSubmit = (event) => {
 
 const handleDelete = (value) => () => {
     setDeleting(true)
-     deleteComment(value).then(() => {
-    setTimeout(() => {     
-     setDeleting(false) 
-    }, 2000);  
-    });  
-    
-    
-    
+    deleteComment(value)
+    setTimeout(() => {
+        setDeleting(false)
+    }, 2000);   
 }
+
 
 
 useEffect(() => {
@@ -46,7 +43,7 @@ useEffect(() => {
     .then((commentsFromApi) => {
         setComments([...commentsFromApi])
     })
-}, [comments, article_id])
+}, [comments, article_id, deleting])
 
     return (
         <div>
@@ -61,7 +58,7 @@ useEffect(() => {
                     <h5>Posted on {formatDate(comment.created_at)}</h5>
                    <p>{comment.body}</p> 
                    
-                    {loggedInUser.username === comment.author && !deleting ? <button onClick={handleDelete(comment.comment_id)}>{deleting ? 'Deleting comment...' : 'Delete'}</button> : loggedInUser.username === comment.author && deleting ? <p className='prompt'>Deleting comment...</p> : null}</li>
+                    {loggedInUser.username === comment.author && !deleting ? <button onClick={handleDelete(comment.comment_id)}>Delete</button> : loggedInUser.username === comment.author && deleting ? <p className='prompt'>Deleting comment...</p> : null}</li>
                 })}
                 
             </ul>

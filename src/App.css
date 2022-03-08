@@ -301,6 +301,11 @@ ul {
   color: #61a9fb;
 }
 
+#error-container {
+  padding: 50px;
+  margin-top: 100px;
+}
+
 @media only screen and (max-width: 457px) {
   .header {
     height: 10vh;

@@ -12,7 +12,8 @@ export const getUsers = () => {
 }
 
 export const getArticles = (sortQry, topicQry) => {
-    return raydditApi.get(`/articles`, {params: {topic: topicQry, sort_by: sortQry}}).then((res) => {
+    return raydditApi.get(`/articles`, {params: {topic: topicQry, sort_by: sortQry}})
+    .then((res) => {
         return res.data.articles
     })
 }

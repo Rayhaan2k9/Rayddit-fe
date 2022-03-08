@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { getArticles, formatDate } from "../api";
+import { getArticles, formatDate, getTopics } from "../api";
 import { UserContext } from "../contexts/User";
 import Loader from "react-js-loader"
+import { Error } from "./Error";
 
 
 export function Articles() {
@@ -12,6 +13,7 @@ const {loggedInUser, isLoggedIn} = useContext(UserContext);
 const [articles, setArticles] = useState([]);
 const [sortBy, setSortBy] = useState('created_at')
 const [isLoading, setIsLoading] = useState(false)
+const [error, setError] = useState(false)
 
 const clickArticle = (article_id) => {
     navigate(`/articles/${article_id}`)
@@ -30,7 +32,6 @@ const sortByVotes = () => {
 }
 
 
-
 useEffect(() => {
     setIsLoading(true)
     getArticles(sortBy, topic_slug)
@@ -38,12 +39,14 @@ useEffect(() => {
         setArticles(articlesFromApi)
         setIsLoading(false)
     })
+    .catch((err) => {
+        setError(err.response)
+    })
 }, [sortBy, topic_slug])
 
 return (
     <>
-    
-    <div className="articles-container">
+    {error ? <Error error={error}/> :  <div className="articles-container">
         <h4 id="welcome-message">Welcome {isLoggedIn ? loggedInUser.username : "Guest"}! Check out all articles below or choose a topic above</h4>
     
    
@@ -65,7 +68,8 @@ return (
             })}
         </ul>
 
-    </div>
+    </div>}
+   
     
     
     

@@ -2,7 +2,7 @@ import axios from "axios";
 const dayjs = require("dayjs");
 
 const raydditApi = axios.create({
-  baseURL: "https://calm-plum-shorts.cyclic.app/api",
+  baseURL: "https://rayddit-api.onrender.com/api",
 });
 
 export const getUsers = () => {
